@@ -1,4 +1,5 @@
-﻿using Application.Services;
+﻿using Application.DTOs;
+using Application.Services;
 using Core.Entities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,7 +19,7 @@ namespace Auctify.API.Controllers
         }
 
         [HttpPost("")]
-        public async Task<IActionResult> Register([FromBody] RegisterEntity registerModel)
+        public async Task<IActionResult> Register([FromBody] RegisterDTO registerModel)
         {
             var user = await _registerService.Register(registerModel);
             return Ok("User is registered successfully!");

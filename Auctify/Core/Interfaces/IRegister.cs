@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Application.DTOs;
 using Core.Entities;
 
 namespace Core.Interfaces
 {
     public interface IRegister
     {
-        Task<RegisterEntity> Register(RegisterEntity registerModel);
+        Task<RegisterDTO> Register(RegisterDTO registerModel);
 
     }
 }

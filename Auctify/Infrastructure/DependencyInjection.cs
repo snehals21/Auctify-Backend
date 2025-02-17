@@ -1,4 +1,5 @@
 ﻿using Application.Services;
+using Application.Services.Common;
 using Core.Interfaces;
 using Infrastructure.Data;
 using Infrastructure.Repositories;
@@ -22,6 +23,7 @@ namespace Infrastructure
             services.AddScoped<IRegister, RegisterRepository>();
 
             // Registered the specific services.
+            services.AddScoped<AuthConfigService>();
             services.AddScoped<RegisterService>();
             //services.AddScoped<IdeaService>();
 

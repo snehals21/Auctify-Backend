@@ -1,4 +1,5 @@
-﻿using Core.Entities;
+﻿using Application.DTOs;
+using Core.Entities;
 using Core.Interfaces;
 using Microsoft.AspNetCore.Identity;
 
@@ -13,26 +14,8 @@ namespace Infrastructure.Repositories
             _userManager = userManager;
         }
 
-        public async Task<RegisterEntity> Register(RegisterEntity registerModel)
+        public async Task<RegisterDTO> Register(RegisterDTO registerModel)
         {
-            if (registerModel == null
-                || string.IsNullOrEmpty(registerModel.FullName)
-                || string.IsNullOrEmpty(registerModel.Email)
-                || string.IsNullOrEmpty(registerModel.Password))
-            {
-                throw new InvalidOperationException("Please enter valid data.");
-            }
-
-            if (registerModel.Password != registerModel.ConfirmPassword)
-            {
-                throw new InvalidOperationException("Password and Confirm Password must be same!");
-            }
-
-            var existingUser = await _userManager.FindByEmailAsync(registerModel.Email);
-            if (existingUser != null)
-            {
-                throw new InvalidOperationException("User with this email ID already registered..");
-            }
 
             var user = new ApplicationUser
             {
