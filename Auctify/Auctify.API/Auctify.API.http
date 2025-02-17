@@ -1,0 +1,6 @@
+@Auctify.API_HostAddress = http://localhost:5106
+
+GET {{Auctify.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
